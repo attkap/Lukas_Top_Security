@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install selenium pandas lxml xlsxwriter openpyxl xlrd beautifulsoup4 
+        pip install selenium pandas lxml xlsxwriter openpyxl xlrd beautifulsoup4 webdriver_manager 
 
     # This step sets up Chrome and ChromeDriver for Selenium
     - name: Setup Chrome Driver
