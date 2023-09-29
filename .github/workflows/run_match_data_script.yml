@@ -2,9 +2,7 @@ name: Run match_data.py Script
 
 on:
   schedule:
-    # This runs at 4AM every day. Change as needed.
     - cron: '0 4 * * *'
-  workflow_dispatch:
 
 jobs:
   run_script:
@@ -22,14 +20,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install selenium pandas lxml xlsxwriter openpyxl xlrd beautifulsoup4 webdriver_manager 
+        pip install selenium pandas lxml xlsxwriter openpyxl xlrd beautifulsoup4
 
-    # This step sets up Chrome and ChromeDriver for Selenium
-    - name: Setup Chrome Driver
-      uses: nanasess/setup-chromedriver@master
-      with:
-        chromedriver_version: 'latest'
-        chrome_channel: 'stable'
+    - name: Setup Firefox and GeckoDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install firefox-geckodriver
 
     - name: Run the script
       run: python ./Python/match_data.py
