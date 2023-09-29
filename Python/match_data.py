@@ -12,10 +12,13 @@ install('xlrd')
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
 
 firefox_options = Options()
 firefox_options.add_argument("--headless")
-driver = webdriver.Firefox(options=firefox_options)
+binary = FirefoxBinary('/usr/bin/firefox')
+driver = webdriver.Firefox(firefox_binary=binary, options=firefox_options)
 
 from bs4 import BeautifulSoup
 import time
