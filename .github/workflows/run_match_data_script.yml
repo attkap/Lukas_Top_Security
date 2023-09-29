@@ -26,7 +26,7 @@ jobs:
     - name: Setup Firefox and GeckoDriver
       run: |
         sudo apt-get update
-        sudo apt-get install firefox-geckodriver
+        sudo apt-get install firefox
 
     - name: Run the script
       run: python ./Python/match_data.py
