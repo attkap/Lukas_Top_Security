@@ -4,6 +4,7 @@ on:
   schedule:
     # This runs at 4AM every day. Change as needed.
     - cron: '0 4 * * *'
+  workflow_dispatch:
 
 jobs:
   run_script:
