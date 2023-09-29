@@ -129,8 +129,6 @@ def send_email(subject, body):
     msg['Subject'] = subject
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-        print(email)
-        print(password)
         smtp_server.login(email, password)
         smtp_server.sendmail(email, 'loebus.l@gmail.com', msg.as_string())
     
