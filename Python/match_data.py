@@ -9,8 +9,16 @@ install('lxml')
 install('xlsxwriter')
 install('openpyxl')
 install('xlrd')
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+driver = webdriver.Chrome(options=chrome_options)
+
 from bs4 import BeautifulSoup
 import time
 from datetime import datetime
@@ -42,7 +50,7 @@ def get_last_file_alphabetically(folder_path):
 
 # Find last date results where downloaded
 path = os.path.dirname(os.path.realpath(__file__))
-folder_path = os.path.join(path, "outputs\game_results_not_refined")
+folder_path = os.path.join(path, "outputs", "game_results_not_refined")
 last_file = get_last_file_alphabetically(folder_path)
 last_date_str = last_file.split('.') [0]
 last_date = datetime.strptime(last_date_str, "%Y-%m-%d")
