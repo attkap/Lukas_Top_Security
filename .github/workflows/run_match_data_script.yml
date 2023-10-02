@@ -1,8 +1,6 @@
 name: Run match_data.py Script
 
 on:
-  schedule:
-    - cron: '0 4 * * *'
   workflow_dispatch:
 
 jobs:
